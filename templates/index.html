@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>To Do App!</title>	
+	<style type="text/css">    
+	</style>
+</head>  
+  
+<body>
+    <p>Here is the To Do List:</p>
+    <table border="1">
+        <tr>
+            <th>Task</th>
+            <th>E-mail</th>
+            <th>Priority</th>
+        </tr>
+        {% for item in todoitems %}
+        <tr>
+            <td>
+            {{ item[0] }}
+            </td>
+            <td>
+            {{ item[1] }}
+            </td>
+            <td>
+            {{ item[2] }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+        <p>Add New Task:</p>
+	<div id="todoform">
+	<form action="/submit" method="post">
+            <table border="1">
+            <tr>
+            <th>Enter Task:</th>
+            <td><textarea name="task" cols="30" rows="2"></textarea></td>
+            </tr>
+            <tr>
+            <th>Enter Email:</th>
+            <td><input type="text" name="email"></input></td>
+            </tr>
+            <tr>
+            <th>Enter Priority:</th>
+            <td><select name="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select></td>
+            </tr>
+            <tr><th></th>
+            <td><input type="submit" value="Add To Do Item"></input></td>
+            </tr>
+            </table>
+        </form>
+	</div>
+
+        <div id="cleartodo">
+	<form action="/clear" method="post">
+            <input type="submit" value="Clear"></input>
+        </form>
+	</div>
+	
+</body>
+</html>
